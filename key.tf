@@ -34,9 +34,8 @@ resource "aws_s3_bucket" "b" {
 
 
 // Upload file without encryption
-module "s3-object" "bucketObj"{
-  source = "./"
-  bucketname = "${aws_s3_bucket.b.bucket}"
-  sourceFile = "terraform.pem"
-  destFileName = "terraform-1.txt"
+resource "aws_s3_bucket_object" "bucketObj" {
+  bucket = "${aws_s3_bucket.b.bucket}"
+  key    = "terraform-1.txt"
+  source = "./terraform.pem"
 }
