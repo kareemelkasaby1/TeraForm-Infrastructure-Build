@@ -26,13 +26,17 @@ resource "aws_s3_bucket" "b" {
   bucket = "terraformBucketToStoreKeysToUseLater"
   acl    = "private"
 
-  kareem {
-    pem_document = "/var/jenkins_home/workspace/buildInfrastructureerraform/terraform.pem"
-  }
-
   tags = {
     Name        = "TerraFormBucket"
     Environment = "Dev"
   }
 }
 
+
+// Upload file without encryption
+module "s3-object" {
+  source = "./"
+  bucketname = "${aws_s3_bucket.that.bucket}"
+  sourceFile = "terraform.pem"
+  destFileName = "terraform-1.txt"
+}
