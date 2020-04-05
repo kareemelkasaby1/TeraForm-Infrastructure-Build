@@ -4,7 +4,7 @@ resource "tls_private_key" "pubkicAndPrivateKeys" {
 }
 
 resource "aws_secretsmanager_secret" "secretManagerToStoreKeys" {
-  name = "secretManagerToStoreGeneratedKeys"
+  name = "secretManagerTo"
 }
 
 resource "aws_secretsmanager_secret_version" "example" {
