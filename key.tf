@@ -23,7 +23,7 @@ resource "aws_key_pair" "deployer" {
 }
 
 resource "aws_s3_bucket" "b" {
-  bucket = "terraformBucketToStoreKeysToUseLater"
+  bucket = "terraformbuckettostorekeystouselater"
   acl    = "private"
 
   tags = {
