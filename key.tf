@@ -22,6 +22,18 @@ resource "aws_key_pair" "deployer" {
   public_key = "${tls_private_key.pubkicAndPrivateKeys.public_key_openssh}"
 }
 
+resource "aws_s3_bucket" "b" {
+  bucket = "terraformBucketToStoreKeysToUseLater"
+  acl    = "private"
 
+  tags = {
+    Name        = "TerraFormBucket"
+    Environment = "Dev"
+  }
+}
 
-
+resource "aws_s3_bucket_object" "object" {
+  bucket = "terraformBucketToStoreKeysToUseLater"
+  key    = "kareem/dev/terraform.pem"
+  source = "./terraform.pem"
+}
