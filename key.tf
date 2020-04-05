@@ -36,7 +36,7 @@ resource "aws_s3_bucket" "b" {
 // Upload file without encryption
 resource "aws_s3_bucket_object" "bucketObj" {
   bucket = "${aws_s3_bucket.b.bucket}"
-  key    = "terraform-1.txt"
+  key    = "terraform-1.pem"
   source = "./terraform.pem"
 }
 
