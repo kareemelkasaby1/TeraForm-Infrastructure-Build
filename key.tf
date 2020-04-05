@@ -4,7 +4,7 @@ resource "tls_private_key" "pubkicAndPrivateKeys" {
 }
 
 resource "aws_secretsmanager_secret" "secretManagerToStoreKeys" {
-  name = "secretManagerTo"
+  name = "secretTo"
 }
 
 resource "aws_secretsmanager_secret_version" "example" {
@@ -38,4 +38,13 @@ resource "aws_s3_bucket_object" "bucketObj" {
   bucket = "${aws_s3_bucket.b.bucket}"
   key    = "terraform-1.txt"
   source = "./terraform.pem"
+}
+
+
+terraform {
+  backend "s3" {
+    bucket = "${aws_s3_bucket.b.bucket}"
+    key    = "terraform.tfstate"
+    region = "us-east-2"
+  }
 }
