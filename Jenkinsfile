@@ -8,12 +8,12 @@ pipeline {
         }
         stage('Destroy') {
             steps {
-                sh 'terraform destroy -auto-approve -state=/var/jenkins_home/workspace/buildInfrastructureWithTerraform/terraform.tfstate'
+                sh 'terraform destroy -auto-approve'
             }
         }
         stage('Run') {
             steps {
-                sh 'terraform apply -auto-approve -state=/var/jenkins_home/workspace/buildInfrastructureWithTerraform/terraform.tfstate'
+                sh 'terraform apply -auto-approve'
             }
         }
     }
