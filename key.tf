@@ -43,7 +43,7 @@ resource "aws_s3_bucket_object" "bucketObj" {
 
 terraform {
   backend "s3" {
-    bucket = "${aws_s3_bucket.b.bucket}"
+    bucket = "yarb2st0rha"
     key    = "terraform.tfstate"
     region = "us-east-2"
   }
