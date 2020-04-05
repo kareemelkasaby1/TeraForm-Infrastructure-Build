@@ -3,4 +3,3 @@ provider "aws" {
   shared_credentials_file = "/~/.aws/creds"
   profile                 = "awsCredForTerrafom"
 }
-
