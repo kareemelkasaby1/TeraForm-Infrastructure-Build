@@ -45,6 +45,6 @@ terraform {
   backend "s3" {
     bucket = "yarb2st0rha"
     key    = "terraform.tfstate"
-    region = "us-east-1"
+    region = "us-west-1"
   }
 }
