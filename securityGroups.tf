@@ -97,7 +97,7 @@ resource "aws_security_group" "appSSH" {
     from_port   = 8153
     to_port     = 8153
     protocol    = "tcp"
-    cidr_blocks = ["${aws_vpc.main.cidr_block}"]
+    cidr_blocks = ["0.0.0.0/0"]
   }
    ingress {
     description = "Allow inpound ssh from vpc"
