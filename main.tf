@@ -1,5 +1,6 @@
 module "nginx1" {
   source                = "./ec2"
+  ami                   = "ami-00fc224d9834053d6"
   tag                   = "nginx1"
   subnet_id             = "${aws_subnet.firstPublicSubnet.id}"
   vpc_security_group_id = "${aws_security_group.web.id}"
@@ -8,6 +9,7 @@ module "nginx1" {
 
 module "nginx2" {
   source                = "./ec2"
+  ami                   = "ami-00fc224d9834053d6"
   tag                   = "nginx2"
   subnet_id             = "${aws_subnet.secondPublicSubnet.id}"
   vpc_security_group_id = "${aws_security_group.web.id}"

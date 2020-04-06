@@ -18,3 +18,8 @@ variable "associate_public_ip_address" {
   description = "If true, the EC2 instance will have associated public IP address"
   default     = true
 }
+
+variable "ami" {
+  default = "ami-09a7fe78668f1e2c0"
+}
+
