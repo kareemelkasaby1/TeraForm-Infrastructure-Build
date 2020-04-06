@@ -3,6 +3,13 @@ resource "aws_security_group" "web" {
   description = "Allow TLS inbound traffic"
   vpc_id      = "${aws_vpc.main.id}"
 
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
   ingress {
     description = "Allow inbound HTTPS"
     from_port   = 443
@@ -48,6 +55,14 @@ resource "aws_security_group" "bastionSSH" {
   description = "Allow TLS inbound traffic"
   vpc_id      = "${aws_vpc.main.id}"
 
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+
    ingress {
     description = "Allow inpound ssh from all"
     from_port   = 22
@@ -70,6 +85,13 @@ resource "aws_security_group" "appSSH" {
   description = "Allow ssh inbound traffic from vpc"
   vpc_id      = "${aws_vpc.main.id}"
 
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+  
    ingress {
     description = "Allow inpound ssh from vpc"
     from_port   = 22
