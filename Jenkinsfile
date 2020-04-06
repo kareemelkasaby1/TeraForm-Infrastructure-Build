@@ -8,7 +8,7 @@ pipeline {
         }
         stage('Run') {
             steps {
-                sh 'terraform apply -auto-approve -state=./terraform.tfstate'
+                sh 'terraform destroy -auto-approve -state=./terraform.tfstate'
             }
         }
     }
